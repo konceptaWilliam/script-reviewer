@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import ChannelGrid from '@/components/ChannelGrid'
 import BudgetBar from '@/components/BudgetBar'
-import ResultView from '@/components/ResultView'
+import ResultModal from '@/components/ResultModal'
 import { BUDGET_CAP } from '@/lib/channels'
 import { getTotalCost, buildChannelLines } from '@/lib/budget'
 
@@ -11,6 +11,7 @@ type Message = { role: 'user' | 'assistant'; content: string }
 
 export default function Page() {
   const [manus, setManus] = useState('')
+  const [manusTitle, setManusTitle] = useState('')
   const [selected, setSelected] = useState<Set<string>>(new Set())
   const [cpcBudgets, setCpcBudgets] = useState<Record<string, string>>({})
   const [extraAmount, setExtraAmount] = useState('')
@@ -133,6 +134,17 @@ Totalt: ${total.toLocaleString('sv-SE')} kr / 20 000 kr (budgettak)
       </p>
 
       <div className="field-group">
+        <div className="section-label">Manusnamn (valfritt)</div>
+        <input
+          type="text"
+          className="ovrig-info"
+          placeholder="T.ex. Sommarjobb Göteborg 2026…"
+          value={manusTitle}
+          onChange={e => setManusTitle(e.target.value)}
+        />
+      </div>
+
+      <div className="field-group">
         <div className="section-label">Manus</div>
         <textarea
           placeholder="Klistra in ditt manus här..."
@@ -199,24 +211,17 @@ Totalt: ${total.toLocaleString('sv-SE')} kr / 20 000 kr (budgettak)
         {loading ? 'Granskar…' : 'Granska manus ↗'}
       </button>
 
-      {showResult && <ResultView text={result} loading={loading} />}
-
-      {awaitingFollowUp && !loading && (
-        <div className="followup-area">
-          <div className="section-label">Svar till granskaren</div>
-          <textarea
-            className="followup-textarea"
-            placeholder="Skriv ditt svar här…"
-            value={followUpInput}
-            onChange={e => setFollowUpInput(e.target.value)}
-            onKeyDown={e => {
-              if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) sendFollowUp()
-            }}
-          />
-          <button className="submit-btn" onClick={sendFollowUp}>
-            Skicka svar ↗
-          </button>
-        </div>
+      {showResult && (
+        <ResultModal
+          text={result}
+          loading={loading}
+          manus={manus}
+          manusTitle={manusTitle}
+          awaitingFollowUp={awaitingFollowUp}
+          followUpInput={followUpInput}
+          onFollowUpChange={setFollowUpInput}
+          onSendFollowUp={sendFollowUp}
+        />
       )}
     </div>
   )

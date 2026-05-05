@@ -54,6 +54,20 @@ Du är skeptisk mot:
 - 76–85: Starkt manus med genomtänkt budget och kanalval
 - 86–100: Exceptionellt — kräver att allt stämmer
 
+## Underutnyttjad budget
+
+Om totalbudgeten understiger 20 000 kr multipliceras den slutliga scoren med en faktor beroende på hur stor andel av budgettaket som används:
+
+| Andel av 20 000 kr | Avdrag |
+|---|---|
+| 90–100% (18 000–20 000 kr) | Inget avdrag |
+| 75–89% (15 000–17 999 kr) | ×0,90 |
+| 50–74% (10 000–14 999 kr) | ×0,80 |
+| 25–49% (5 000–9 999 kr) | ×0,65 |
+| Under 25% (under 5 000 kr) | ×0,50 |
+
+Räkna alltid ut andelen av 20 000 kr och tillämpa faktorn på scoren innan du presenterar resultatet.
+
 ## Budgettak och maxscore
 
 Budgettaket är **20 000 kr**. Om totalbudgeten överstiger det gäller följande hårda maxscore, oavsett manustets kvalitet i övrigt:

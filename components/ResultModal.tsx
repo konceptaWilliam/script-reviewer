@@ -1,5 +1,13 @@
 'use client'
 
+import { useEffect, useRef } from 'react'
+import confetti from 'canvas-confetti'
+
+function parseScore(text: string): number | null {
+  const match = text.match(/### Score:\s*(\d+)/)
+  return match ? parseInt(match[1], 10) : null
+}
+
 function renderMarkdown(text: string): string {
   let html = text
     .replace(/&/g, '&amp;')
@@ -103,6 +111,16 @@ export default function ResultModal({
   }
 
   const isDone = !loading && !!text && !awaitingFollowUp
+  const confettiFired = useRef(false)
+
+  useEffect(() => {
+    if (confettiFired.current) return
+    const score = parseScore(text)
+    if (score !== null && score > 80) {
+      confettiFired.current = true
+      confetti({ particleCount: 160, spread: 90, origin: { y: 0.5 } })
+    }
+  }, [text])
 
   return (
     <div className="modal-overlay">

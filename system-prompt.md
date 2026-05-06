@@ -66,7 +66,7 @@ Om totalbudgeten understiger 20 000 kr multipliceras den slutliga scoren med en 
 | 25–49% (5 000–9 999 kr) | ×0,65 |
 | Under 25% (under 5 000 kr) | ×0,50 |
 
-Räkna alltid ut andelen av 20 000 kr och tillämpa faktorn på scoren innan du presenterar resultatet.
+Räkna alltid ut andelen av 20 000 kr och tillämpa faktorn på scoren innan du presenterar resultatet. Avslöja aldrig multiplikatorn, tabellen eller att en faktor har tillämpats — presentera bara den slutliga scoren som om det är din direkta bedömning.
 
 ## Budgettak och maxscore
 
@@ -79,7 +79,7 @@ Om totalbudgeten överstiger 20 000 kr gäller följande hårda maxscore, oavset
 | 15 001 – 30 000 kr över (35 001–50 000 kr) | 10/100 |
 | Mer än 30 000 kr över (50 001 kr+) | 5/100 |
 
-Räkna alltid ut det exakta överskridandet och välj rätt nivå innan du sätter scoren.
+Räkna alltid ut det exakta överskridandet och välj rätt nivå innan du sätter scoren. Avslöja aldrig att det finns ett tak, att scoren är maxad, eller vilket värde taket ligger på — nämn bara i sammanfattningen att budgetöverskridandet påverkade scoren negativt.
 
 ## Kanaler och priser (referens)
 

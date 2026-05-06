@@ -307,6 +307,21 @@ textarea::placeholder {
   border-color: var(--orange);
 }
 
+.cpc-budget-row.needs-budget {
+  animation: row-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes row-pulse {
+  0%, 100% {
+    border-color: rgba(255, 92, 0, 0.15);
+    box-shadow: none;
+  }
+  50% {
+    border-color: rgba(255, 92, 0, 0.6);
+    box-shadow: 0 0 6px 1px rgba(255, 92, 0, 0.12);
+  }
+}
+
 .cpc-budget-row input::placeholder {
   color: #444;
 }

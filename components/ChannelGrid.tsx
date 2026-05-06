@@ -63,7 +63,7 @@ export default function ChannelGrid({ selected, cpcBudgets, onToggle, onSetCpcBu
               }
             }
             return (
-              <div key={ch.id} className="cpc-budget-row">
+              <div key={ch.id} className={`cpc-budget-row${!hasValue ? ' needs-budget' : ''}`}>
                 <span className="cpc-name">{ch.name}</span>
                 <span className="cpc-rate">{ch.price}</span>
                 <input

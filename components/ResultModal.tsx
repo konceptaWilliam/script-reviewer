@@ -78,6 +78,7 @@ type Props = {
   followUpInput: string
   onFollowUpChange: (val: string) => void
   onSendFollowUp: () => void
+  onClose: () => void
 }
 
 export default function ResultModal({
@@ -89,6 +90,7 @@ export default function ResultModal({
   followUpInput,
   onFollowUpChange,
   onSendFollowUp,
+  onClose,
 }: Props) {
   function handleSave() {
     const html = resultToDocHtml(manus, text)
@@ -163,6 +165,9 @@ export default function ResultModal({
           <div className="modal-actions">
             <button className="submit-btn" onClick={handleSave}>
               Spara manus och sammanfattning
+            </button>
+            <button className="secondary-btn" onClick={onClose}>
+              Fortsätt redigera
             </button>
             <button className="secondary-btn" onClick={handleNewScript}>
               Skapa nytt manus

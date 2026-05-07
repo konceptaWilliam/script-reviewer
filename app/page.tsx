@@ -4,6 +4,7 @@ import { useState } from "react";
 import ChannelGrid from "@/components/ChannelGrid";
 import BudgetBar from "@/components/BudgetBar";
 import ResultModal from "@/components/ResultModal";
+import TipsModal from "@/components/TipsModal";
 import { BUDGET_CAP, CHANNELS } from "@/lib/channels";
 import { getTotalCost, buildChannelLines } from "@/lib/budget";
 
@@ -23,6 +24,7 @@ export default function Page() {
   const [conversation, setConversation] = useState<Message[]>([]);
   const [awaitingFollowUp, setAwaitingFollowUp] = useState(false);
   const [followUpInput, setFollowUpInput] = useState("");
+  const [showTips, setShowTips] = useState(false);
 
   const total = getTotalCost(selected, cpcBudgets, extraAmount);
 
@@ -149,6 +151,9 @@ Totalt: ${total.toLocaleString("sv-SE")} kr / 20 000 kr (budgettak)
         Klistra in manuset, välj kanaler och ange budget — granskningen visas
         direkt på sidan.
       </p>
+      <button className="tips-btn" onClick={() => setShowTips(true)}>
+        Hur skriver man ett bra manus? →
+      </button>
 
       <div className="field-group">
         <div className="section-label">Manusnamn (valfritt)</div>
@@ -244,6 +249,8 @@ Totalt: ${total.toLocaleString("sv-SE")} kr / 20 000 kr (budgettak)
         {loading ? "Granskar…" : "Granska manus ↗"}
       </button>
 
+      {showTips && <TipsModal onClose={() => setShowTips(false)} />}
+
       {showResult && (
         <ResultModal
           text={result}
@@ -254,6 +261,7 @@ Totalt: ${total.toLocaleString("sv-SE")} kr / 20 000 kr (budgettak)
           followUpInput={followUpInput}
           onFollowUpChange={setFollowUpInput}
           onSendFollowUp={sendFollowUp}
+          onClose={() => setShowResult(false)}
         />
       )}
     </div>

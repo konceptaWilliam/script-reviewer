@@ -677,3 +677,146 @@ textarea::placeholder {
   color: var(--orange);
   margin-bottom: 4px;
 }
+
+.tips-btn {
+  display: inline-block;
+  padding: 9px 18px;
+  background: var(--orange-dim);
+  color: var(--orange);
+  border: 1px solid rgba(255, 92, 0, 0.4);
+  border-radius: 8px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 28px;
+  animation: tips-glow 2.4s ease-in-out infinite;
+  transition: background 0.15s, color 0.15s;
+}
+
+.tips-btn:hover {
+  background: rgba(255, 92, 0, 0.2);
+  color: #fff;
+  animation: none;
+}
+
+@keyframes tips-glow {
+  0%, 100% {
+    box-shadow: 0 0 0px 0px rgba(255, 92, 0, 0);
+    border-color: rgba(255, 92, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 12px 3px rgba(255, 92, 0, 0.25);
+    border-color: rgba(255, 92, 0, 0.75);
+  }
+}
+
+/* Tips modal */
+.tips-panel {
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+}
+
+.tips-close-btn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 2px 4px;
+  transition: color 0.15s;
+  line-height: 1;
+}
+
+.tips-close-btn:hover {
+  color: var(--text);
+}
+
+.tips-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.tips-section {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.tips-section-last {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.tips-section-title {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 8px;
+}
+
+.tips-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.tips-example {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text);
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.tips-length-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tips-length-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.tips-length-time {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--orange);
+  width: 48px;
+  flex-shrink: 0;
+}
+
+.tips-length-words {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.tips-list {
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tips-list li {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.tips-list em {
+  color: var(--text);
+  font-style: normal;
+}
